@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas Simples</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>Hoje</h1>
+
+            <form action="" id="todo-form">
+                <input type="text" name="task-name" placeholder="Digite sua tarefa aqui..." autofocus>
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+    </header>
+
+    <section>
+        <div class="container" id="main-content">
+            <ul class="stats">
+                <li>
+                    <span>Em andamento</span>
+                    <span id="remaining-tasks">0</span>
+                </li>
+    
+                <li>
+                    <span>Concluídas</span>
+                    <span id="completed-tasks">0</span>
+                </li>
+    
+                <li>
+                    <span>Total</span>
+                    <span id="total-tasks">0</span>
+                </li>
+            </ul>
+
+            <ul class="todos">
+            </ul>
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
