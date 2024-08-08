@@ -4,6 +4,7 @@ const totalTasks = document.querySelector('#total-tasks');
 const completedTasks = document.querySelector('#completed-tasks');
 const remainingTasks = document.querySelector('#remaining-tasks');
 const mainInput = document.querySelector('#todo-form input');
+const charLimit = 20;
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -12,6 +13,12 @@ if(localStorage.getItem('tasks')){
         createTask(task);
     })
 }
+
+mainInput.addEventListener('input', () => {
+    if (mainInput.value.length > charLimit) {
+        mainInput.value = mainInput.value.slice(0, charLimit);
+    }
+});
 
 todoForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -113,6 +120,13 @@ function updateTask(taskId, el){
     const task = tasks.find((task) => task.id === parseInt(taskId));
 
     if(el.hasAttribute('contenteditable')){
+
+        if (el.textContent.length > charLimit) {
+            alert(`A tarefa deve ter menos de ${charLimit} caracteres.`);
+            el.textContent = task.name;
+            return;
+        }
+
         task.name = el.textContent;
     }else{
         const span = el.nextElementSibling;
